@@ -1,52 +1,43 @@
 import { useState } from "react";
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, Text, View, Image } from "react-native";
 import { Button } from "react-native-web";
 import { TextInput } from "react-native";
 
 function Footer() {
-  const [color, setColor] = useState("white");
+
+  const [aleatorio, setAleatorio] = useState(1);
+  const url = `https://picsum.photos/id/${aleatorio}/200/300`
 
   return (
     <View
       style={{
-        backgroundColor: color,
-        display: "flex",
+        backgroundColor: 'white',
+        display: "block",
         alignItems: "center",
         height: "100vh",
         flexDirection: "row",
-        justifyContent: "space-evenly",
+        justifyContent: "center",
       }}
     >
       <View
         style={{
-            padding: "1vh",
-            backgroundColor:'white'
-          }}
+          padding: "1vh",
+          backgroundColor: 'white'
+        }}
       >
-        <Button color="red" title="Vermelho" onPress={() => setColor("red")} />
+        <Image source={{ uri: url, width: 200, height: 300 }} />
       </View>
-      <View
-       style={{
-        padding: "1vh",
-        backgroundColor:'white'
-      }}
-      >
 
-        <Button
-          color="blue"
-          title="Azul"
-          onPress={() => setColor("blue")}
-          style={{ padding: "10px" }}
-        />
+
+
+      <View>
+        <Button style={{paddingTop:10}} color="red" title="Gerar imagem" onPress={() => setAleatorio(aleatorio + 1)} />
       </View>
-      <View
-        style={{
-            padding: "1vh",
-            backgroundColor:'white'
-          }}
-      >
-        <Button color="green" title="Verde" onPress={() => setColor("green")} />
-      </View>
+
+
+
+
+
     </View>
   );
 }

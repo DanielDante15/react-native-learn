@@ -1,17 +1,15 @@
 import { View,Text } from 'react-native'
 import Body from './src/Telas/body'
 import Footer from './src/Telas/footer';
-import TelaPrincipal from './src/Telas/teste';
+import { useDeviceOrientation } from '@react-native-community/hooks';
 
 function App() {
 
-  
-
-
+  const orientation = useDeviceOrientation()
+  console.log('orientation is:', orientation);
   return ( 
     <View>
-      <TelaPrincipal/>
-      {/* <Footer/> */}
+      <Footer/>
     {/* <Body/> */}
     </View> 
    );
